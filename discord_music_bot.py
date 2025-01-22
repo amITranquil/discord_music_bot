@@ -78,7 +78,7 @@ async def handle_play_error(ctx: commands.Context, error: Optional[Exception]) -
         await ctx.send("⚠️ An error occurred while playing the song, skipping to next...")
     await play_next(ctx)
 
-# Yeni fonksiyon: Status güncelleme
+# Status Updating
 async def update_music_status(track: Optional[Track] = None) -> None:
     if track:
         activity = discord.Activity(
@@ -102,7 +102,7 @@ async def play_next(ctx: commands.Context) -> None:
     voice_client = ctx.guild.voice_client
     
     try:
-        # Müzik başladığında status'ü güncelle
+        # Update status when music starts
         await update_music_status(track)
         
         voice_client.play(
